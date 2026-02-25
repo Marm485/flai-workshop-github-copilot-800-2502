@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <!-- Background pill -->
+  <rect rx="10" ry="10" width="200" height="50" fill="#0d1117"/>
+  <!-- Octopus body -->
+  <ellipse cx="28" cy="22" rx="12" ry="11" fill="#6610f2"/>
+  <!-- Eyes -->
+  <circle cx="23" cy="19" r="2.5" fill="white"/>
+  <circle cx="33" cy="19" r="2.5" fill="white"/>
+  <circle cx="24" cy="19.5" r="1.2" fill="#0d1117"/>
+  <circle cx="34" cy="19.5" r="1.2" fill="#0d1117"/>
+  <!-- Tentacles -->
+  <path d="M18 31 Q15 38 17 43" stroke="#6610f2" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M22 33 Q20 40 21 45" stroke="#6610f2" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M28 33 Q28 41 27 46" stroke="#6610f2" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M34 33 Q35 40 34 45" stroke="#6610f2" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M38 31 Q41 38 39 43" stroke="#6610f2" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Text: OctoFit -->
+  <text x="52" y="22" font-family="'Segoe UI',Arial,sans-serif" font-size="16" font-weight="800" fill="#ffffff">OctoFit</text>
+  <text x="52" y="38" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="400" fill="#6610f2" letter-spacing="2">TRACKER</text>
+</svg>
