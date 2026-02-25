@@ -44,7 +44,7 @@ function Teams() {
                   <div className="card-header bg-dark text-white d-flex justify-content-between align-items-center">
                     <h5 className="mb-0">{team.name}</h5>
                     <span className="badge bg-primary">
-                      {(team.members || []).length} member{(team.members || []).length !== 1 ? 's' : ''}
+                      {Array.isArray(team.members) ? team.members.length : 0} member{(!Array.isArray(team.members) || team.members.length !== 1) ? 's' : ''}
                     </span>
                   </div>
                   <div className="card-body p-0">
@@ -52,15 +52,17 @@ function Teams() {
                       <thead className="table-secondary">
                         <tr>
                           <th>#</th>
+                          <th>Name</th>
                           <th>Username</th>
                           <th>Email</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {(team.members || []).map((member, index) => (
-                          <tr key={member.id}>
+                        {Array.isArray(team.members) && team.members.map((member, index) => (
+                          <tr key={member._id || member.id}>
                             <td className="text-muted">{index + 1}</td>
-                            <td><span className="fw-semibold">{member.username}</span></td>
+                            <td><span className="fw-semibold">{member.name}</span></td>
+                            <td><span className="text-secondary">{member.username}</span></td>
                             <td><a href={`mailto:${member.email}`} className="text-decoration-none">{member.email}</a></td>
                           </tr>
                         ))}
