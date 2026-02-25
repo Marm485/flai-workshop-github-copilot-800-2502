@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+function formatDate(isoString) {
+  if (!isoString) return '—';
+  const [year, month, day] = isoString.split('-').map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+    year: 'numeric', month: 'short', day: 'numeric'
+  });
+}
+
 const API_BASE = process.env.REACT_APP_CODESPACE_NAME
   ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
   : 'http://localhost:8000';
@@ -56,7 +64,7 @@ function Activities() {
                       <td><span className="fw-semibold">{activity.user?.username || activity.user}</span></td>
                       <td>{activity.activity_type}</td>
                       <td><span className="badge bg-secondary">{activity.duration} min</span></td>
-                      <td>{activity.date}</td>
+                      <td>{formatDate(activity.date)}</td>
                     </tr>
                   ))
                 )}
