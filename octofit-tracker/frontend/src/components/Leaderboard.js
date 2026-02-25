@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-const API_BASE = process.env.REACT_APP_CODESPACE_NAME
-  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-  : 'http://localhost:8000';
+const endpoint = process.env.REACT_APP_CODESPACE_NAME
+  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+  : 'http://localhost:8000/api/leaderboard/';
 
 function scoreBadgeClass(index) {
   if (index === 0) return 'bg-warning text-dark';
@@ -14,7 +14,6 @@ function scoreBadgeClass(index) {
 function Leaderboard() {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const endpoint = `${API_BASE}/api/leaderboard/`;
 
   useEffect(() => {
     console.log(`Fetching leaderboard from: ${endpoint}`);

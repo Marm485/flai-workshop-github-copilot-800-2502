@@ -1,8 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 
-const API_BASE = process.env.REACT_APP_CODESPACE_NAME
-  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
-  : 'http://localhost:8000';
+const USERS_ENDPOINT = process.env.REACT_APP_CODESPACE_NAME
+  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+  : 'http://localhost:8000/api/users/';
+
+const TEAMS_ENDPOINT = process.env.REACT_APP_CODESPACE_NAME
+  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/teams/`
+  : 'http://localhost:8000/api/teams/';
 
 const EMPTY_FORM = { name: '', username: '', email: '', password: '', team_id: '' };
 
@@ -16,15 +20,15 @@ function Users() {
   const [saveError, setSaveError] = useState('');
 
   const fetchUsers = useCallback(() => {
-    return fetch(`${API_BASE}/api/users/`)
+    return fetch(USERS_ENDPOINT)
       .then(r => r.json())
       .then(d => setUsers(Array.isArray(d) ? d : d.results || []));
   }, []);
 
   useEffect(() => {
     Promise.all([
-      fetch(`${API_BASE}/api/users/`).then(r => r.json()),
-      fetch(`${API_BASE}/api/teams/`).then(r => r.json()),
+      fetch(USERS_ENDPOINT).then(r => r.json()),
+      fetch(TEAMS_ENDPOINT).then(r => r.json()),
     ])
       .then(([userData, teamData]) => {
         setUsers(Array.isArray(userData) ? userData : userData.results || []);
@@ -69,7 +73,7 @@ function Users() {
     };
     if (form.password) payload.password = form.password;
 
-    fetch(`${API_BASE}/api/users/${editUser.id}/`, {
+    fetch(`${USERS_ENDPOINT}${editUser.id}/`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
