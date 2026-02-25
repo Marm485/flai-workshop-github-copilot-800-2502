@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+/* OctoFit Tracker – global styles */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar brand */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Active nav link highlight */
+.nav-link.active {
+  font-weight: 600;
+  border-bottom: 2px solid #0d6efd;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Page heading */
+.page-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #212529;
+  border-left: 4px solid #0d6efd;
+  padding-left: 0.6rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Consistent table header */
+.table thead.table-dark th {
+  font-weight: 600;
+  letter-spacing: 0.4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Card hover lift */
+.card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Hero / welcome section */
+.hero-section {
+  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+}
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.hero-section p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* Badge pill tweaks */
+.badge {
+  font-size: 0.85rem;
+  padding: 0.45em 0.75em;
+}
+
+/* Rank number styling in leaderboard */
+.rank-number {
+  font-weight: 700;
+  color: #0d6efd;
+}
+.rank-number.gold   { color: #ffc107; }
+.rank-number.silver { color: #adb5bd; }
+.rank-number.bronze { color: #cd7f32; }
+

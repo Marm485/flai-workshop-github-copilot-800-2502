@@ -7,50 +7,66 @@ import Users from './components/Users';
 import Workouts from './components/Workouts';
 import './App.css';
 
+function Home() {
+  return (
+    <div className="hero-section text-center">
+      <h1>🏋️ OctoFit Tracker</h1>
+      <p className="lead">
+        Track your fitness activities, compete with your team, and level up your health!
+      </p>
+      <div className="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+        <NavLink to="/users" className="btn btn-light btn-lg">👤 Users</NavLink>
+        <NavLink to="/teams" className="btn btn-light btn-lg">🤝 Teams</NavLink>
+        <NavLink to="/activities" className="btn btn-light btn-lg">🏃 Activities</NavLink>
+        <NavLink to="/leaderboard" className="btn btn-light btn-lg">🏆 Leaderboard</NavLink>
+        <NavLink to="/workouts" className="btn btn-light btn-lg">💪 Workouts</NavLink>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">OctoFit Tracker</NavLink>
+          <NavLink className="navbar-brand" to="/">🐙 OctoFit Tracker</NavLink>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/users">Users</NavLink>
+                <NavLink className="nav-link" to="/users">👤 Users</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/teams">Teams</NavLink>
+                <NavLink className="nav-link" to="/teams">🤝 Teams</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/activities">Activities</NavLink>
+                <NavLink className="nav-link" to="/activities">🏃 Activities</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/leaderboard">Leaderboard</NavLink>
+                <NavLink className="nav-link" to="/leaderboard">🏆 Leaderboard</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/workouts">Workouts</NavLink>
+                <NavLink className="nav-link" to="/workouts">💪 Workouts</NavLink>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-      <div className="container-fluid mt-3">
+      <div className="container mt-4">
         <Routes>
-          <Route path="/" element={
-            <div className="jumbotron p-4">
-              <h1 className="display-5">Welcome to OctoFit Tracker</h1>
-              <p className="lead">Track your fitness activities, compete with your team, and level up!</p>
-            </div>
-          } />
+          <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/activities" element={<Activities />} />
