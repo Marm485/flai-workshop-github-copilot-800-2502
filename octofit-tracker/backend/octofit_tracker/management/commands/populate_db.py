@@ -69,16 +69,16 @@ class Command(BaseCommand):
 
         self.stdout.write('Creating leaderboard entries...')
         leaderboard_data = [
-            {'user': users['ironman'], 'score': 950},
-            {'user': users['captainamerica'], 'score': 900},
-            {'user': users['blackwidow'], 'score': 870},
-            {'user': users['thor'], 'score': 980},
-            {'user': users['hulk'], 'score': 860},
-            {'user': users['batman'], 'score': 920},
-            {'user': users['superman'], 'score': 1000},
-            {'user': users['wonderwoman'], 'score': 940},
-            {'user': users['theflash'], 'score': 910},
-            {'user': users['greenlantern'], 'score': 880},
+            {'user': users['ironman'],       'score': 950,  'team': 'Team Marvel', 'total_calories': 450},
+            {'user': users['captainamerica'], 'score': 900,  'team': 'Team Marvel', 'total_calories': 600},
+            {'user': users['blackwidow'],    'score': 870,  'team': 'Team Marvel', 'total_calories': 750},
+            {'user': users['thor'],          'score': 980,  'team': 'Team Marvel', 'total_calories': 300},
+            {'user': users['hulk'],          'score': 860,  'team': 'Team Marvel', 'total_calories': 200},
+            {'user': users['batman'],        'score': 920,  'team': 'Team DC',     'total_calories': 500},
+            {'user': users['superman'],      'score': 1000, 'team': 'Team DC',     'total_calories': 900},
+            {'user': users['wonderwoman'],   'score': 940,  'team': 'Team DC',     'total_calories': 550},
+            {'user': users['theflash'],      'score': 910,  'team': 'Team DC',     'total_calories': 150},
+            {'user': users['greenlantern'],  'score': 880,  'team': 'Team DC',     'total_calories': 400},
         ]
         for data in leaderboard_data:
             Leaderboard.objects.create(**data)

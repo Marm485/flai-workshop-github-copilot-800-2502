@@ -48,25 +48,31 @@ function Leaderboard() {
               <thead className="table-dark">
                 <tr>
                   <th>Rank</th>
-                  <th>User</th>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Team</th>
                   <th>Score</th>
+                  <th>Calories</th>
                 </tr>
               </thead>
               <tbody>
                 {entries.length === 0 ? (
-                  <tr><td colSpan="3" className="text-center text-muted py-3">No entries found.</td></tr>
+                  <tr><td colSpan="6" className="text-center text-muted py-3">No entries found.</td></tr>
                 ) : (
                   entries.map((entry, index) => (
                     <tr key={entry.id}>
                       <td className={`rank-number ${index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : ''} fw-bold`}>
                         {index === 0 ? '1st' : index === 1 ? '2nd' : index === 2 ? '3rd' : `${index + 1}th`}
                       </td>
-                      <td><span className="fw-semibold">{entry.user?.username || entry.user}</span></td>
+                      <td><span className="fw-semibold">{entry.user?.name || '—'}</span></td>
+                      <td><span className="text-secondary">{entry.user?.username || entry.user}</span></td>
+                      <td><span className="badge bg-info text-dark">{entry.team || '—'}</span></td>
                       <td>
                         <span className={`badge ${scoreBadgeClass(index)}`}>
                           {entry.score} pts
                         </span>
                       </td>
+                      <td><span className="badge bg-success">{entry.total_calories} cal</span></td>
                     </tr>
                   ))
                 )}

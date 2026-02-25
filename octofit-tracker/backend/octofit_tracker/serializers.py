@@ -49,7 +49,7 @@ class LeaderboardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Leaderboard
-        fields = ['_id', 'id', 'user', 'user_id', 'score']
+        fields = ['_id', 'id', 'user', 'user_id', 'score', 'team', 'total_calories']
 
     def get__id(self, obj):
         return str(obj.pk)

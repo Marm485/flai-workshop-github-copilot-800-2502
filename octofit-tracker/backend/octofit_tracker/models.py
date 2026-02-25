@@ -41,6 +41,8 @@ class Activity(models.Model):
 class Leaderboard(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='leaderboard_entries')
     score = models.IntegerField(default=0)
+    team = models.CharField(max_length=100, default='')
+    total_calories = models.IntegerField(default=0)
 
     class Meta:
         db_table = 'leaderboard'
