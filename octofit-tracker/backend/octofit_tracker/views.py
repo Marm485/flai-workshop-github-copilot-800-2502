@@ -48,5 +48,5 @@ class LeaderboardViewSet(viewsets.ModelViewSet):
 
 
 class WorkoutViewSet(viewsets.ModelViewSet):
-    queryset = Workout.objects.all()
+    queryset = Workout.objects.select_related('participant').all()
     serializer_class = WorkoutSerializer

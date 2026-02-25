@@ -52,9 +52,12 @@ class Leaderboard(models.Model):
 
 
 class Workout(models.Model):
+    DIFFICULTY_CHOICES = [('Easy', 'Easy'), ('Medium', 'Medium'), ('Hard', 'Hard')]
     name = models.CharField(max_length=200)
     description = models.TextField()
     duration = models.IntegerField(help_text='Duration in minutes')
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY_CHOICES, default='Medium')
+    participant = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='workouts')
 
     class Meta:
         db_table = 'workouts'

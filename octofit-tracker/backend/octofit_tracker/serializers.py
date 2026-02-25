@@ -57,10 +57,14 @@ class LeaderboardSerializer(serializers.ModelSerializer):
 
 class WorkoutSerializer(serializers.ModelSerializer):
     _id = serializers.SerializerMethodField()
+    participant = UserSerializer(read_only=True)
+    participant_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), source='participant', write_only=True, required=False, allow_null=True
+    )
 
     class Meta:
         model = Workout
-        fields = ['_id', 'id', 'name', 'description', 'duration']
+        fields = ['_id', 'id', 'name', 'description', 'duration', 'difficulty', 'participant', 'participant_id']
 
     def get__id(self, obj):
         return str(obj.pk)

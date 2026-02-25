@@ -4,6 +4,12 @@ const API_BASE = process.env.REACT_APP_CODESPACE_NAME
   ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev`
   : 'http://localhost:8000';
 
+function difficultyBadge(level) {
+  if (level === 'Hard')   return 'badge bg-danger';
+  if (level === 'Easy')   return 'badge bg-success';
+  return 'badge bg-warning text-dark';
+}
+
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,20 +48,28 @@ function Workouts() {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
+                    <th>Participant</th>
                     <th>Description</th>
                     <th>Duration</th>
+                    <th>Difficulty</th>
                   </tr>
                 </thead>
                 <tbody>
                   {workouts.length === 0 ? (
-                    <tr><td colSpan="4" className="text-center text-muted py-3">No workouts found.</td></tr>
+                    <tr><td colSpan="6" className="text-center text-muted py-3">No workouts found.</td></tr>
                   ) : (
                     workouts.map((workout, index) => (
                       <tr key={workout.id}>
                         <td className="text-muted">{index + 1}</td>
                         <td><span className="fw-semibold">{workout.name}</span></td>
+                        <td>
+                          {workout.participant
+                            ? <><span className="fw-semibold">{workout.participant.name}</span><br/><small className="text-secondary">{workout.participant.username}</small></>
+                            : <span className="text-muted">—</span>}
+                        </td>
                         <td className="text-muted">{workout.description}</td>
                         <td><span className="badge bg-success">{workout.duration} min</span></td>
+                        <td><span className={difficultyBadge(workout.difficulty)}>{workout.difficulty}</span></td>
                       </tr>
                     ))
                   )}
@@ -75,10 +89,14 @@ function Workouts() {
                     <h6 className="mb-0">{workout.name}</h6>
                   </div>
                   <div className="card-body">
-                    <p className="card-text text-muted">{workout.description}</p>
+                    <p className="card-text text-muted small">{workout.description}</p>
+                    {workout.participant && (
+                      <p className="mb-1"><small className="text-secondary">👤 {workout.participant.name} ({workout.participant.username})</small></p>
+                    )}
                   </div>
-                  <div className="card-footer">
+                  <div className="card-footer d-flex gap-2">
                     <span className="badge bg-success">{workout.duration} min</span>
+                    <span className={difficultyBadge(workout.difficulty)}>{workout.difficulty}</span>
                   </div>
                 </div>
               </div>

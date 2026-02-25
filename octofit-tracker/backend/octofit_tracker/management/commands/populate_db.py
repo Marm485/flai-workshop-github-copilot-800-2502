@@ -86,16 +86,16 @@ class Command(BaseCommand):
 
         self.stdout.write('Creating workouts...')
         workouts_data = [
-            {'name': 'Iron Man Endurance', 'description': 'High-intensity suit flight training and repulsor target practice.', 'duration': 60},
-            {'name': 'Captain America Circuit', 'description': 'Full-body shield combat and agility drills.', 'duration': 45},
-            {'name': 'Black Widow Stealth Training', 'description': 'Martial arts, acrobatics, and flexibility exercises.', 'duration': 75},
-            {'name': 'Thor Power Workout', 'description': 'Hammer throws, lightning resistance, and Asgardian strength training.', 'duration': 50},
-            {'name': 'Hulk Smash Cardio', 'description': 'Explosive strength and anger management workout.', 'duration': 30},
-            {'name': 'Batman Night Training', 'description': 'Cape gliding, batarang accuracy, and detective cardio.', 'duration': 90},
-            {'name': 'Superman Speed Drill', 'description': 'Super-speed laps, heat vision focus, and flight endurance.', 'duration': 40},
-            {'name': 'Wonder Woman Combat', 'description': 'Lasso technique, sword fighting, and Amazonian agility.', 'duration': 55},
-            {'name': 'Flash Speed Intervals', 'description': 'Ultra-fast sprint intervals around Central City.', 'duration': 20},
-            {'name': 'Green Lantern Constructs', 'description': 'Will-power ring constructs and space flight training.', 'duration': 35},
+            {'name': 'Iron Man Endurance',          'description': 'High-intensity suit flight training and repulsor target practice.',      'duration': 60, 'difficulty': 'Hard',   'participant': users['ironman']},
+            {'name': 'Captain America Circuit',     'description': 'Full-body shield combat and agility drills.',                            'duration': 45, 'difficulty': 'Medium', 'participant': users['captainamerica']},
+            {'name': 'Black Widow Stealth Training','description': 'Martial arts, acrobatics, and flexibility exercises.',                   'duration': 75, 'difficulty': 'Hard',   'participant': users['blackwidow']},
+            {'name': 'Thor Power Workout',          'description': 'Hammer throws, lightning resistance, and Asgardian strength training.',  'duration': 50, 'difficulty': 'Hard',   'participant': users['thor']},
+            {'name': 'Hulk Smash Cardio',           'description': 'Explosive strength and anger management workout.',                        'duration': 30, 'difficulty': 'Medium', 'participant': users['hulk']},
+            {'name': 'Batman Night Training',       'description': 'Cape gliding, batarang accuracy, and detective cardio.',                 'duration': 90, 'difficulty': 'Hard',   'participant': users['batman']},
+            {'name': 'Superman Speed Drill',        'description': 'Super-speed laps, heat vision focus, and flight endurance.',             'duration': 40, 'difficulty': 'Easy',   'participant': users['superman']},
+            {'name': 'Wonder Woman Combat',         'description': 'Lasso technique, sword fighting, and Amazonian agility.',               'duration': 55, 'difficulty': 'Medium', 'participant': users['wonderwoman']},
+            {'name': 'Flash Speed Intervals',       'description': 'Ultra-fast sprint intervals around Central City.',                       'duration': 20, 'difficulty': 'Easy',   'participant': users['theflash']},
+            {'name': 'Green Lantern Constructs',    'description': 'Will-power ring constructs and space flight training.',                  'duration': 35, 'difficulty': 'Medium', 'participant': users['greenlantern']},
         ]
         for data in workouts_data:
             Workout.objects.create(**data)
