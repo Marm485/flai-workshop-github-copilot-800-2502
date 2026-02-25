@@ -5,6 +5,7 @@ import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
+import octoFitLogo from './octofitapp-small.svg';
 import './App.css';
 
 function Home() {
@@ -30,7 +31,9 @@ function App() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">🐙 OctoFit Tracker</NavLink>
+          <NavLink className="navbar-brand d-flex align-items-center" to="/">
+            <img src={octoFitLogo} alt="OctoFit Tracker" height="38" className="octofit-logo" />
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"

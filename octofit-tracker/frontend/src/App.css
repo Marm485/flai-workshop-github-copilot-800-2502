@@ -1,76 +1,184 @@
-/* OctoFit Tracker – global styles */
+/* ============================================================
+   OctoFit Tracker – Global Stylesheet
+   ============================================================ */
+
+/* ── Colour palette ── */
+:root {
+  --octo-purple:    #6610f2;
+  --octo-blue:      #0d6efd;
+  --octo-dark:      #0d1117;
+  --octo-dark-soft: #161b22;
+  --octo-border:    #30363d;
+  --octo-text:      #e6edf3;
+  --octo-muted:     #8b949e;
+  --octo-success:   #2ea043;
+  --octo-warning:   #e3b341;
+  --octo-danger:    #f85149;
+}
+
+/* ── Base ── */
 body {
-  background-color: #f0f2f5;
+  background-color: #f0f4f8;
+  color: #212529;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navbar brand */
-.navbar-brand {
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 0.5px;
+/* ── Navbar ── */
+.navbar.bg-dark {
+  background-color: var(--octo-dark) !important;
+  border-bottom: 2px solid var(--octo-purple);
+  box-shadow: 0 2px 12px rgba(102, 16, 242, 0.35);
 }
 
-/* Active nav link highlight */
-.nav-link.active {
+.navbar-brand img.octofit-logo {
+  height: 38px;
+  filter: drop-shadow(0 0 6px rgba(102, 16, 242, 0.6));
+  transition: filter 0.2s;
+}
+.navbar-brand img.octofit-logo:hover {
+  filter: drop-shadow(0 0 10px rgba(102, 16, 242, 0.9));
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: #c9d1d9 !important;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.navbar-nav .nav-link:hover {
+  background: rgba(102, 16, 242, 0.2);
+  color: #ffffff !important;
+}
+.navbar-nav .nav-link.active {
+  background: var(--octo-purple);
+  color: #ffffff !important;
   font-weight: 600;
-  border-bottom: 2px solid #0d6efd;
 }
 
-/* Page heading */
+/* ── Page headings ── */
 .page-heading {
   font-size: 1.75rem;
   font-weight: 700;
+  color: var(--octo-dark);
+  border-left: 5px solid var(--octo-purple);
+  padding-left: 0.65rem;
   margin-bottom: 1.25rem;
-  color: #212529;
-  border-left: 4px solid #0d6efd;
-  padding-left: 0.6rem;
 }
 
-/* Consistent table header */
-.table thead.table-dark th {
-  font-weight: 600;
-  letter-spacing: 0.4px;
-}
-
-/* Card hover lift */
-.card {
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.card:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-
-/* Hero / welcome section */
+/* ── Hero / home section ── */
 .hero-section {
-  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
-  color: #fff;
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--octo-dark) 0%, #1a0533 50%, #0d2a6e 100%);
+  color: #e6edf3;
+  border-radius: 16px;
   padding: 3rem 2rem;
   margin-bottom: 2rem;
+  border: 1px solid var(--octo-border);
+  box-shadow: 0 8px 32px rgba(102, 16, 242, 0.25);
 }
 .hero-section h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
+  color: #ffffff;
 }
 .hero-section p {
   font-size: 1.15rem;
-  opacity: 0.9;
+  color: #8b949e;
+}
+.hero-section .btn-light {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.15s;
+}
+.hero-section .btn-light:hover {
+  background: var(--octo-purple);
+  border-color: var(--octo-purple);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
-/* Badge pill tweaks */
+/* ── Cards ── */
+.card {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 6px 20px rgba(102, 16, 242, 0.12);
+  transform: translateY(-2px);
+}
+.card-header.bg-dark {
+  background-color: var(--octo-dark) !important;
+  border-bottom: 2px solid var(--octo-purple);
+}
+.card-footer {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+/* ── Tables ── */
+.table {
+  font-size: 0.92rem;
+}
+.table thead.table-dark th {
+  background-color: var(--octo-dark) !important;
+  color: #e6edf3;
+  border-color: var(--octo-border);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.table thead.table-secondary th {
+  background-color: #dde1e7 !important;
+  color: #495057;
+  font-weight: 600;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(102, 16, 242, 0.04);
+}
+.table-hover > tbody > tr:hover > * {
+  background-color: rgba(13, 110, 253, 0.07);
+}
+.table-bordered > :not(caption) > * > * {
+  border-color: #dee2e6;
+}
+
+/* ── Badges ── */
 .badge {
-  font-size: 0.85rem;
-  padding: 0.45em 0.75em;
+  font-size: 0.82rem;
+  padding: 0.42em 0.72em;
+  border-radius: 6px;
 }
 
-/* Rank number styling in leaderboard */
-.rank-number {
-  font-weight: 700;
-  color: #0d6efd;
-}
-.rank-number.gold   { color: #ffc107; }
+/* ── Leaderboard rank colours ── */
+.rank-number        { font-weight: 700; color: var(--octo-blue); }
+.rank-number.gold   { color: var(--octo-warning); }
 .rank-number.silver { color: #adb5bd; }
 .rank-number.bronze { color: #cd7f32; }
+
+/* ── Links ── */
+a {
+  color: var(--octo-blue);
+}
+a:hover {
+  color: var(--octo-purple);
+}
+
+/* ── Spinner ── */
+.spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* ── Responsive padding ── */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+}
 
