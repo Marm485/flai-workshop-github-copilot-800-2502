@@ -40,18 +40,20 @@ function Users() {
               <thead className="table-dark">
                 <tr>
                   <th>#</th>
+                  <th>Name</th>
                   <th>Username</th>
                   <th>Email</th>
                 </tr>
               </thead>
               <tbody>
                 {users.length === 0 ? (
-                  <tr><td colSpan="3" className="text-center text-muted py-3">No users found.</td></tr>
+                  <tr><td colSpan="4" className="text-center text-muted py-3">No users found.</td></tr>
                 ) : (
                   users.map((user, index) => (
                     <tr key={user.id}>
                       <td className="text-muted">{index + 1}</td>
-                      <td><span className="fw-semibold">{user.username}</span></td>
+                      <td><span className="fw-semibold">{user.name}</span></td>
+                      <td><span className="text-secondary">{user.username}</span></td>
                       <td><a href={`mailto:${user.email}`} className="text-decoration-none">{user.email}</a></td>
                     </tr>
                   ))

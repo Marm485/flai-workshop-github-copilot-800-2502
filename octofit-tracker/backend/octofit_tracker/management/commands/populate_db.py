@@ -17,17 +17,17 @@ class Command(BaseCommand):
         self.stdout.write('Creating superhero users...')
         users_data = [
             # Team Marvel
-            {'username': 'ironman', 'email': 'tony@avengers.com', 'password': 'stark1234'},
-            {'username': 'captainamerica', 'email': 'steve@avengers.com', 'password': 'shield1234'},
-            {'username': 'blackwidow', 'email': 'natasha@avengers.com', 'password': 'widow1234'},
-            {'username': 'thor', 'email': 'thor@asgard.com', 'password': 'mjolnir1234'},
-            {'username': 'hulk', 'email': 'bruce@avengers.com', 'password': 'smash1234'},
+            {'name': 'Tony Stark', 'username': 'ironman', 'email': 'tony@avengers.com', 'password': 'stark1234'},
+            {'name': 'Steve Rogers', 'username': 'captainamerica', 'email': 'steve@avengers.com', 'password': 'shield1234'},
+            {'name': 'Natasha Romanoff', 'username': 'blackwidow', 'email': 'natasha@avengers.com', 'password': 'widow1234'},
+            {'name': 'Thor Odinson', 'username': 'thor', 'email': 'thor@asgard.com', 'password': 'mjolnir1234'},
+            {'name': 'Bruce Banner', 'username': 'hulk', 'email': 'bruce@avengers.com', 'password': 'smash1234'},
             # Team DC
-            {'username': 'batman', 'email': 'bruce@wayneenterprises.com', 'password': 'gotham1234'},
-            {'username': 'superman', 'email': 'clark@dailyplanet.com', 'password': 'krypton1234'},
-            {'username': 'wonderwoman', 'email': 'diana@themyscira.com', 'password': 'lasso1234'},
-            {'username': 'theflash', 'email': 'barry@ccpd.com', 'password': 'speed1234'},
-            {'username': 'greenlantern', 'email': 'hal@oa.com', 'password': 'ring1234'},
+            {'name': 'Bruce Wayne', 'username': 'batman', 'email': 'bruce@wayneenterprises.com', 'password': 'gotham1234'},
+            {'name': 'Clark Kent', 'username': 'superman', 'email': 'clark@dailyplanet.com', 'password': 'krypton1234'},
+            {'name': 'Diana Prince', 'username': 'wonderwoman', 'email': 'diana@themyscira.com', 'password': 'lasso1234'},
+            {'name': 'Barry Allen', 'username': 'theflash', 'email': 'barry@ccpd.com', 'password': 'speed1234'},
+            {'name': 'Hal Jordan', 'username': 'greenlantern', 'email': 'hal@oa.com', 'password': 'ring1234'},
         ]
 
         users = {}
