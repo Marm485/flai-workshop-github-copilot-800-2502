@@ -21,6 +21,9 @@ if codespace_name:
 else:
     base_url = "http://localhost:8000"
 
+# Log the active base URL at startup (visible in the console)
+print(f"OctoFit API base URL: {base_url}/api/")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', api_root, name='api-root'),
